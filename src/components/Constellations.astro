@@ -1,0 +1,598 @@
+---
+
+---
+
+<div id="constellation-container">
+  <!-- SVG de Géminis (izquierda) -->
+  <svg id="gemini-svg" viewBox="0 0 500 500" class="constellation-svg">
+    <g id="gemini">
+      <!-- Estrellas principales GRANDES (las 6 brillantes) -->
+      <circle cx="180" cy="140" r="0" fill="white" class="star gemini-star-main" data-index="0"></circle>
+      <circle cx="170" cy="200" r="0" fill="white" class="star gemini-star-main" data-index="1"></circle>
+      <circle cx="255" cy="215" r="0" fill="white" class="star gemini-star-main" data-index="2"></circle>
+      <circle cx="290" cy="170" r="0" fill="white" class="star gemini-star-main" data-index="3"></circle>
+      <circle cx="350" cy="175" r="0" fill="white" class="star gemini-star-main" data-index="4"></circle>
+      <circle cx="305" cy="250" r="0" fill="white" class="star gemini-star-main" data-index="5"></circle>
+
+      <!-- Estrellas secundarias (medianas) -->
+      <circle cx="160" cy="180" r="0" fill="white" class="star gemini-star-medium" data-index="6"></circle>
+      <circle cx="220" cy="220" r="0" fill="white" class="star gemini-star-medium" data-index="7"></circle>
+      <circle cx="225" cy="145" r="0" fill="white" class="star gemini-star-medium" data-index="8"></circle>
+      <circle cx="250" cy="155" r="0" fill="white" class="star gemini-star-medium" data-index="9"></circle>
+      <circle cx="330" cy="180" r="0" fill="white" class="star gemini-star-medium" data-index="10"></circle>
+      <circle cx="325" cy="200" r="0" fill="white" class="star gemini-star-medium" data-index="11"></circle>
+      <circle cx="310" cy="220" r="0" fill="white" class="star gemini-star-medium" data-index="11"></circle>
+
+      <!-- Líneas principales de conexión (gemelo izquierdo) -->
+      <line
+        x1="180"
+        y1="140"
+        x2="160"
+        y2="180"
+        stroke="rgba(255,255,255,0)"
+        stroke-width="2"
+        class="line gemini-line"
+        data-line="0"></line>
+      <line
+        x1="160"
+        y1="180"
+        x2="170"
+        y2="200"
+        stroke="rgba(255,255,255,0)"
+        stroke-width="2"
+        class="line gemini-line"
+        data-line="1"></line>
+      <line
+        x1="180"
+        y1="140"
+        x2="225"
+        y2="145"
+        stroke="rgba(255,255,255,0)"
+        stroke-width="2"
+        class="line gemini-line"
+        data-line="2"></line>
+      <line
+        x1="170"
+        y1="200"
+        x2="220"
+        y2="220"
+        stroke="rgba(255,255,255,0)"
+        stroke-width="2"
+        class="line gemini-line"
+        data-line="3"></line>
+      <!-- Líneas principales de conexión (gemelo derecho) -->
+      <line
+        x1="225"
+        y1="145"
+        x2="250"
+        y2="155"
+        stroke="rgba(255,255,255,0)"
+        stroke-width="2"
+        class="line gemini-line"
+        data-line="4"></line>
+      <line
+        x1="220"
+        y1="220"
+        x2="255"
+        y2="215"
+        stroke="rgba(255,255,255,0)"
+        stroke-width="2"
+        class="line gemini-line"
+        data-line="5"></line>
+      <line
+        x1="250"
+        y1="155"
+        x2="290"
+        y2="170"
+        stroke="rgba(255,255,255,0)"
+        stroke-width="2"
+        class="line gemini-line"
+        data-line="6"></line>
+      <line
+        x1="255"
+        y1="215"
+        x2="310"
+        y2="220"
+        stroke="rgba(255,255,255,0)"
+        stroke-width="2"
+        class="line gemini-line"
+        data-line="7"></line>
+      <line
+        x1="290"
+        y1="170"
+        x2="330"
+        y2="180"
+        stroke="rgba(255,255,255,0)"
+        stroke-width="2"
+        class="line gemini-line"
+        data-line="8"></line>
+      <!-- Líneas secundarias (parte inferior) -->
+      <line
+        x1="330"
+        y1="180"
+        x2="325"
+        y2="200"
+        stroke="rgba(255,255,255,0)"
+        stroke-width="2"
+        class="line gemini-line"
+        data-line="9"></line>
+      <line
+        x1="325"
+        y1="200"
+        x2="310"
+        y2="220"
+        stroke="rgba(255,255,255,0)"
+        stroke-width="2"
+        class="line gemini-line"
+        data-line="10"></line>
+      <line
+        x1="330"
+        y1="180"
+        x2="350"
+        y2="175"
+        stroke="rgba(255,255,255,0)"
+        stroke-width="2"
+        class="line gemini-line"
+        data-line="11"></line>
+
+      <line
+        x1="310"
+        y1="220"
+        x2="305"
+        y2="250"
+        stroke="rgba(255,255,255,0)"
+        stroke-width="2"
+        class="line gemini-line"
+        data-line="13"></line>
+      <text x="300" y="450" fill="white" font-size="20" text-anchor="middle" class="constellation-name" opacity="0"
+        >Géminis ♊</text
+      >
+    </g>
+  </svg>
+
+  <!-- SVG del Corazón (centro) -->
+  <svg id="heart-svg" viewBox="0 0 400 300" class="constellation-svg">
+    <g id="heart-connection" opacity="0">
+      <defs>
+        <linearGradient id="heartGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#ff6b9d;stop-opacity:1"></stop>
+          <stop offset="50%" style="stop-color:#ffa6c1;stop-opacity:1"></stop>
+          <stop offset="100%" style="stop-color:#ff8fb3;stop-opacity:1"></stop>
+        </linearGradient>
+        <filter id="heartGlow">
+          <feGaussianBlur stdDeviation="4" result="coloredBlur"></feGaussianBlur>
+          <feMerge>
+            <feMergeNode in="coloredBlur"></feMergeNode>
+            <feMergeNode in="SourceGraphic"></feMergeNode>
+          </feMerge>
+        </filter>
+      </defs>
+
+      <!-- Corazón principal CORREGIDO -->
+      <path
+        d="M 200 80
+           C 200 60, 170 40, 140 40
+           C 110 40, 90 60, 90 90
+           C 90 120, 110 140, 130 160
+           L 200 230
+           L 270 160
+           C 290 140, 310 120, 310 90
+           C 310 60, 290 40, 260 40
+           C 230 40, 200 60, 200 80
+           Z"
+        fill="url(#heartGradient)"
+        stroke="#ffb6c1"
+        stroke-width="2"
+        filter="url(#heartGlow)"
+        class="heart-shape"></path>
+
+      <!-- Partículas decorativas alrededor del corazón -->
+      <circle cx="80" cy="90" r="3" fill="#ffb6c1" opacity="0.8" class="heart-particle"></circle>
+      <circle cx="320" cy="90" r="3" fill="#ffb6c1" opacity="0.8" class="heart-particle"></circle>
+      <circle cx="130" cy="170" r="2.5" fill="#ffa6c1" opacity="0.7" class="heart-particle"></circle>
+      <circle cx="270" cy="170" r="2.5" fill="#ffa6c1" opacity="0.7" class="heart-particle"></circle>
+      <circle cx="200" cy="50" r="2" fill="#ff8fb3" opacity="0.6" class="heart-particle"></circle>
+      <circle cx="150" cy="60" r="2" fill="#ff8fb3" opacity="0.6" class="heart-particle"></circle>
+      <circle cx="250" cy="60" r="2" fill="#ff8fb3" opacity="0.6" class="heart-particle"></circle>
+    </g>
+  </svg>
+
+  <!-- SVG de Acuario (derecha) -->
+  <svg id="aquarius-svg" viewBox="0 0 500 500" class="constellation-svg">
+    <g id="aquarius">
+      <!-- Estrellas de Acuario  -->
+      <circle cx="125" cy="340" r="0" fill="white" class="star aquarius-star" data-index="0"></circle>
+      <circle cx="110" cy="250" r="0" fill="white" class="star aquarius-star" data-index="1"></circle>
+      <circle cx="90" cy="250" r="0" fill="white" class="star aquarius-star" data-index="2"></circle>
+      <circle cx="110" cy="220" r="0" fill="white" class="star aquarius-star" data-index="3"></circle>
+      <circle cx="220" cy="170" r="0" fill="white" class="star aquarius-star" data-index="4"></circle>
+      <circle cx="90" cy="280" r="0" fill="white" class="star aquarius-star" data-index="5"></circle>
+      <circle cx="160" cy="235" r="0" fill="white" class="star aquarius-star" data-index="6"></circle>
+      <circle cx="190" cy="230" r="0" fill="white" class="star aquarius-star" data-index="7"></circle>
+      <circle cx="145" cy="310" r="0" fill="white" class="star aquarius-star" data-index="8"></circle>
+      <circle cx="170" cy="305" r="0" fill="white" class="star aquarius-star" data-index="9"></circle>
+      <circle cx="200" cy="320" r="0" fill="white" class="star aquarius-star" data-index="10"></circle>
+
+      <!-- Líneas de Acuario -->
+      <line
+        x1="220"
+        y1="170"
+        x2="110"
+        y2="220"
+        stroke="rgba(255,255,255,0)"
+        stroke-width="1.5"
+        class="line aquarius-line"
+        data-line="0"></line>
+      <line
+        x1="110"
+        y1="220"
+        x2="110"
+        y2="250"
+        stroke="rgba(255,255,255,0)"
+        stroke-width="1.5"
+        class="line aquarius-line"
+        data-line="1"></line>
+      <line
+        x1="110"
+        y1="220"
+        x2="160"
+        y2="235"
+        stroke="rgba(255,255,255,0)"
+        stroke-width="1.5"
+        class="line aquarius-line"
+        data-line="2"></line>
+      <line
+        x1="160"
+        y1="235"
+        x2="190"
+        y2="230"
+        stroke="rgba(255,255,255,0)"
+        stroke-width="1.5"
+        class="line aquarius-line"
+        data-line="3"></line>
+      <line
+        x1="110"
+        y1="250"
+        x2="90"
+        y2="250"
+        stroke="rgba(255,255,255,0)"
+        stroke-width="1.5"
+        class="line aquarius-line"
+        data-line="4"></line>
+      <line
+        x1="90"
+        y1="250"
+        x2="90"
+        y2="280"
+        stroke="rgba(255,255,255,0)"
+        stroke-width="1.5"
+        class="line aquarius-line"
+        data-line="5"></line>
+      <line
+        x1="90"
+        y1="280"
+        x2="125"
+        y2="340"
+        stroke="rgba(255,255,255,0)"
+        stroke-width="1.5"
+        class="line aquarius-line"
+        data-line="6"></line>
+      <line
+        x1="125"
+        y1="340"
+        x2="145"
+        y2="310"
+        stroke="rgba(255,255,255,0)"
+        stroke-width="1.5"
+        class="line aquarius-line"
+        data-line="7"></line>
+      <line
+        x1="145"
+        y1="310"
+        x2="170"
+        y2="305"
+        stroke="rgba(255,255,255,0)"
+        stroke-width="1.5"
+        class="line aquarius-line"
+        data-line="8"></line>
+      <line
+        x1="145"
+        y1="310"
+        x2="200"
+        y2="320"
+        stroke="rgba(255,255,255,0)"
+        stroke-width="1.5"
+        class="line aquarius-line"
+        data-line="8"></line>
+
+      <text x="150" y="410" fill="white" font-size="20" text-anchor="middle" class="constellation-name" opacity="0"
+        >Acuario ♒</text
+      >
+    </g>
+  </svg>
+</div>
+
+<style>
+  #constellation-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .constellation-svg {
+    position: absolute;
+    pointer-events: none;
+  }
+
+  /* Posicionar Géminis a la izquierda */
+  #gemini-svg {
+    left: 5%;
+    top: 20%;
+    width: 35%;
+    height: auto;
+  }
+
+  /* Posicionar el Corazón en el centro */
+  #heart-svg {
+    left: 50%;
+    top: 30%;
+    transform: translateX(-50%);
+    width: 25%;
+    height: auto;
+  }
+
+  /* Posicionar Acuario a la derecha */
+  #aquarius-svg {
+    right: 5%;
+    top: 20%;
+    width: 35%;
+    height: auto;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    #gemini-svg,
+    #aquarius-svg {
+      width: 40%;
+    }
+
+    #heart-svg {
+      width: 30%;
+    }
+  }
+
+  .star {
+    filter: drop-shadow(0 0 6px white) drop-shadow(0 0 10px rgba(255, 182, 193, 0.6));
+  }
+
+  /* Estrellas principales de Géminis - más grandes y brillantes */
+  .gemini-star-main {
+    filter: drop-shadow(0 0 8px white) drop-shadow(0 0 12px rgba(255, 215, 135, 0.9))
+      drop-shadow(0 0 16px rgba(255, 215, 135, 0.6));
+  }
+
+  /* Estrellas secundarias de Géminis - medianas */
+  .gemini-star-medium {
+    filter: drop-shadow(0 0 5px white) drop-shadow(0 0 8px rgba(255, 215, 135, 0.7));
+  }
+
+  .constellation-name {
+    font-family: "Georgia", serif;
+    letter-spacing: 2px;
+  }
+
+  .heart-shape {
+    transform-origin: center;
+  }
+
+  .heart-particle {
+    animation: sparkleParticle 2s ease-in-out infinite;
+  }
+
+  .heart-particle:nth-child(2) {
+    animation-delay: 0.3s;
+  }
+
+  .heart-particle:nth-child(3) {
+    animation-delay: 0.6s;
+  }
+
+  .heart-particle:nth-child(4) {
+    animation-delay: 0.9s;
+  }
+
+  @keyframes sparkleParticle {
+    0%,
+    100% {
+      opacity: 0.3;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.5);
+    }
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+
+  // Esperar a que todo cargue
+  window.addEventListener("load", () => {
+    const timeline = gsap.timeline();
+
+    // === GÉMINIS ===
+    // Animar estrellas PRINCIPALES de Géminis (las grandes brillantes)
+    const geminiStarsMain = document.querySelectorAll(".gemini-star-main");
+    geminiStarsMain.forEach((star, index) => {
+      timeline.to(
+        star,
+        {
+          attr: { r: 5 },
+          duration: 0.4,
+          ease: "back.out(2)",
+        },
+        index * 0.2,
+      );
+
+      // Brillo extra de la estrella principal
+      timeline.to(
+        star,
+        {
+          attr: { r: 7 },
+          duration: 0.25,
+          yoyo: true,
+          repeat: 1,
+          ease: "power1.inOut",
+        },
+        `-=0.15`,
+      );
+    });
+
+    // Animar estrellas SECUNDARIAS de Géminis (medianas)
+    const geminiStarsMedium = document.querySelectorAll(".gemini-star-medium");
+    geminiStarsMedium.forEach((star, index) => {
+      timeline.to(
+        star,
+        {
+          attr: { r: 3 },
+          duration: 0.3,
+          ease: "back.out(2)",
+        },
+        `-=0.8`,
+      );
+
+      // Brillo de la estrella secundaria
+      timeline.to(
+        star,
+        {
+          attr: { r: 4.5 },
+          duration: 0.2,
+          yoyo: true,
+          repeat: 1,
+          ease: "power1.inOut",
+        },
+        `-=0.1`,
+      );
+    });
+
+    // Animar líneas de Géminis conectándose
+    const geminiLines = document.querySelectorAll(".gemini-line");
+    geminiLines.forEach((line, index) => {
+      timeline.to(
+        line,
+        {
+          attr: { stroke: "rgba(255,215,135,0.8)" },
+          duration: 0.5,
+          ease: "power2.inOut",
+        },
+        `-=0.3`,
+      );
+    });
+
+    // Mostrar nombre de Géminis
+    timeline.to(
+      "#gemini .constellation-name",
+      {
+        opacity: 1,
+        duration: 0.8,
+        ease: "power2.out",
+      },
+      "-=0.3",
+    );
+
+    // === ACUARIO ===
+    // Animar estrellas de Acuario apareciendo una por una
+    const aquariusStars = document.querySelectorAll(".aquarius-star");
+    aquariusStars.forEach((star, index) => {
+      timeline.to(
+        star,
+        {
+          attr: { r: 4 },
+          duration: 0.3,
+          ease: "back.out(2)",
+        },
+        `-=${index === 0 ? 0.5 : 0.7}` + ` +=${index * 0.15}`,
+      );
+
+      // Brillo de la estrella
+      timeline.to(
+        star,
+        {
+          attr: { r: 6 },
+          duration: 0.2,
+          yoyo: true,
+          repeat: 1,
+          ease: "power1.inOut",
+        },
+        `-=0.1`,
+      );
+    });
+
+    // Animar líneas de Acuario conectándose
+    const aquariusLines = document.querySelectorAll(".aquarius-line");
+    aquariusLines.forEach((line, index) => {
+      timeline.to(
+        line,
+        {
+          attr: { stroke: "rgba(255,255,255,0.7)" },
+          duration: 0.4,
+          ease: "power2.inOut",
+        },
+        `-=0.2`,
+      );
+    });
+
+    // Mostrar nombre de Acuario
+    timeline.to(
+      "#aquarius .constellation-name",
+      {
+        opacity: 1,
+        duration: 0.8,
+        ease: "power2.out",
+      },
+      "-=0.3",
+    );
+
+    // === CORAZÓN CONECTANDO ===
+    timeline.to(
+      "#heart-connection",
+      {
+        opacity: 1,
+        duration: 1.5,
+        ease: "power2.inOut",
+      },
+      "-=0.5",
+    );
+
+    // Pulsar el corazón elegantemente
+    timeline.to(".heart-shape", {
+      scale: 1.1,
+      duration: 0.8,
+      yoyo: true,
+      repeat: 2,
+      ease: "power1.inOut",
+      transformOrigin: "center",
+    });
+
+    // Animar las líneas de conexión
+    timeline.to(
+      ".connection-line",
+      {
+        strokeDashoffset: 0,
+        duration: 1,
+        ease: "power2.inOut",
+      },
+      "-=1.5",
+    );
+
+    // Disparar evento cuando termine la animación
+    timeline.eventCallback("onComplete", () => {
+      window.dispatchEvent(new CustomEvent("constellations-complete"));
+    });
+  });
+</script>

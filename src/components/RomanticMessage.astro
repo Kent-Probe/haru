@@ -1,0 +1,197 @@
+---
+
+---
+
+<div id="romantic-message">
+  <h1 class="main-message">Me gustas</h1>
+  <h2 class="question">¿Quieres ser mi novia? 💫</h2>
+  <div class="sparkles">✨</div>
+</div>
+
+<div id="scroll-indicator">
+  <div class="scroll-arrow">
+    <span>↓</span>
+  </div>
+  <p class="scroll-text">Desliza para ver más</p>
+</div>
+
+<style>
+  #romantic-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease-out;
+  }
+
+  #romantic-message.hidden {
+    opacity: 0 !important;
+    pointer-events: none;
+  }
+
+  #scroll-indicator {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 11;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    cursor: pointer;
+  }
+
+  .main-message {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-family: "Georgia", "Times New Roman", serif;
+    color: #fff;
+    text-shadow:
+      0 0 20px rgba(255, 182, 193, 0.8),
+      0 0 40px rgba(255, 182, 193, 0.6);
+    margin-bottom: 1rem;
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  .question {
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    font-family: "Georgia", "Times New Roman", serif;
+    color: #ffb6c1;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    margin-top: 1rem;
+  }
+
+  .sparkles {
+    font-size: 3rem;
+    margin-top: 2rem;
+    animation: sparkle 1.5s ease-in-out infinite;
+  }
+  @keyframes glow {
+    from {
+      text-shadow:
+        0 0 20px rgba(255, 182, 193, 0.8),
+        0 0 40px rgba(255, 182, 193, 0.6);
+    }
+    to {
+      text-shadow:
+        0 0 30px rgba(255, 182, 193, 1),
+        0 0 60px rgba(255, 182, 193, 0.8),
+        0 0 80px rgba(255, 182, 193, 0.6);
+    }
+  }
+
+  @keyframes sparkle {
+    0%,
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.5;
+      transform: scale(1.2);
+    }
+  }
+
+  .scroll-arrow {
+    font-size: 3rem;
+    color: #ffb6c1;
+    animation: bounce 2s ease-in-out infinite;
+    text-shadow: 0 0 20px rgba(255, 182, 193, 0.8);
+  }
+
+  .scroll-text {
+    font-size: 1rem;
+    color: #ffb6c1;
+    margin-top: 0.5rem;
+    font-family: "Georgia", serif;
+    text-shadow: 0 0 10px rgba(255, 182, 193, 0.6);
+  }
+
+  @keyframes bounce {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+
+  // Escuchar cuando las constelaciones terminen
+  window.addEventListener("constellations-complete", () => {
+    const message = document.getElementById("romantic-message");
+    const scrollIndicator = document.getElementById("scroll-indicator");
+
+    // Hacer el mensaje interactivo
+    if (message) {
+      message.style.pointerEvents = "auto";
+    }
+
+    // Animar la aparición del mensaje
+    gsap.to("#romantic-message", {
+      opacity: 1,
+      scale: 1,
+      duration: 2,
+      ease: "back.out(1.7)",
+      delay: 0.5,
+      onComplete: () => {
+        // Mostrar indicador de scroll después del mensaje
+        gsap.to("#scroll-indicator", {
+          opacity: 1,
+          duration: 1,
+          delay: 1.5,
+          ease: "power2.out",
+          onComplete: () => {
+            if (scrollIndicator) {
+              scrollIndicator.style.pointerEvents = "auto";
+            }
+          },
+        });
+      },
+    });
+
+    // Habilitar el scroll y ocultar mensaje al hacer scroll
+    let scrollEnabled = false;
+    setTimeout(() => {
+      scrollEnabled = true;
+      document.body.style.overflow = "auto";
+    }, 4000);
+
+    // Detectar scroll para ocultar el mensaje
+    window.addEventListener("scroll", () => {
+      if (scrollEnabled && window.scrollY > 100) {
+        message?.classList.add("hidden");
+        gsap.to("#scroll-indicator", {
+          opacity: 0,
+          duration: 0.5,
+        });
+      } else if (window.scrollY <= 100) {
+        message?.classList.remove("hidden");
+        if (scrollEnabled) {
+          gsap.to("#scroll-indicator", {
+            opacity: 1,
+            duration: 0.5,
+          });
+        }
+      }
+    });
+
+    // Click en el indicador para hacer scroll
+    scrollIndicator?.addEventListener("click", () => {
+      const phrasesSection = document.getElementById("phrases-section");
+      if (phrasesSection) {
+        phrasesSection.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+  });
+
+  // Deshabilitar scroll al inicio
+  document.body.style.overflow = "hidden";
+</script>

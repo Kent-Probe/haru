@@ -1,0 +1,144 @@
+---
+
+---
+
+<footer>
+  <div class="footer-content">
+    <div class="developer-info">
+      <div class="logo-placeholder">
+        <span class="logo-text">
+          <img src="/logo.svg" alt="Logo" style="width: 60px; height: 60px;" />
+        </span>
+      </div>
+      <h3>Desarrollado con 💙 por</h3>
+      <p class="dev-name">Kevin Hernández (Kent's)</p>
+    </div>
+
+    <div class="footer-message">
+      <p>Hecho con código, café y mucho amor ✨</p>
+      <p class="copyright">© {new Date().getFullYear()} - Todos los derechos reservados</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    position: relative;
+    z-index: 2;
+    background: rgba(0, 0, 20, 0.9);
+    border-top: 2px solid rgba(255, 182, 193, 0.3);
+    padding: 3rem 2rem 2rem;
+    margin-top: 4rem;
+  }
+
+  .footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .developer-info {
+    margin-bottom: 2rem;
+  }
+
+  .logo-placeholder {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1rem;
+    background: rgba(255, 182, 193, 0.2);
+    border: 2px solid rgba(255, 182, 193, 0.5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+
+  .logo-placeholder:hover {
+    transform: scale(1.1);
+    border-color: rgba(255, 182, 193, 0.8);
+    box-shadow: 0 0 20px rgba(255, 182, 193, 0.4);
+  }
+
+  .logo-text {
+    font-size: 0.8rem;
+    color: #ffb6c1;
+    font-weight: bold;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    color: #ffb6c1;
+    margin-bottom: 0.5rem;
+    font-family: "Georgia", serif;
+  }
+
+  .dev-name {
+    font-size: 1.5rem;
+    color: #fff;
+    font-weight: bold;
+    margin: 0.5rem 0;
+  }
+
+  .dev-title {
+    color: #ffb6c1;
+    font-size: 1rem;
+    opacity: 0.9;
+    margin-bottom: 1.5rem;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .social-link {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(255, 182, 193, 0.4);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+  }
+
+  .social-link:hover {
+    background: rgba(255, 182, 193, 0.2);
+    border-color: rgba(255, 182, 193, 0.8);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(255, 182, 193, 0.3);
+  }
+
+  .footer-message {
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 182, 193, 0.2);
+  }
+
+  .footer-message p {
+    color: #fff;
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+  }
+
+  .copyright {
+    opacity: 0.7;
+    font-size: 0.85rem !important;
+  }
+
+  @media (max-width: 768px) {
+    footer {
+      padding: 2rem 1rem 1.5rem;
+    }
+
+    .social-links {
+      gap: 1rem;
+    }
+
+    .social-link {
+      font-size: 0.85rem;
+      padding: 0.4rem 0.8rem;
+    }
+  }
+</style>

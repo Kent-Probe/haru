@@ -1,0 +1,250 @@
+---
+import phrasesData from "../data/phrases.json";
+import PlayIcon from "./icons/PlayIcon.astro";
+import PauseIcon from "./icons/PauseIcon.astro";
+
+// Obtener la frase del día actual
+const today = new Date().toISOString().split("T")[0];
+const todayPhrase = phrasesData.find((p) => p.date === today) || phrasesData[phrasesData.length - 1];
+---
+
+<section id="phrases-section">
+  <div class="phrases-container">
+    <h2>Frase del Día</h2>
+    <div class="phrase-card">
+      <p class="phrase-text">{todayPhrase.phrase}</p>
+      <p class="phrase-date">
+        {
+          new Date(todayPhrase.date).toLocaleDateString("es-ES", {
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })
+        }
+      </p>
+    </div>
+
+    <div class="all-phrases">
+      <h3>Todas las frases 💌</h3>
+      <div class="phrases-grid">
+        {
+          phrasesData.reverse().map((item) => (
+            <div class="phrase-item">
+              <p class="mini-phrase">{item.phrase}</p>
+              <span class="mini-date">{new Date(item.date).toLocaleDateString("es-ES")}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  <!-- Reproductor de música -->
+  <div class="music-player">
+    <audio id="background-music" loop>
+      <source src="/music/taylor-swift-song.mp3" type="audio/mpeg" />
+    </audio>
+    <button id="music-toggle" aria-label="Reproducir música">
+      <span class="play-icon"> <PlayIcon /> </span>
+      <span class="pause-icon" style="display: none;"> <PauseIcon /> </span>
+    </button>
+  </div>
+</section>
+
+<style>
+  #phrases-section {
+    position: relative;
+    min-height: 100vh;
+    z-index: 2;
+    padding: 4rem 2rem;
+    margin-top: 100vh;
+  }
+
+  .phrases-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(0, 0, 30, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    border: 1px solid rgba(255, 182, 193, 0.3);
+  }
+
+  h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: #ffb6c1;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-family: "Georgia", serif;
+    text-shadow: 0 0 10px rgba(255, 182, 193, 0.5);
+  }
+
+  .phrase-card {
+    background: rgba(255, 182, 193, 0.1);
+    border: 2px solid rgba(255, 182, 193, 0.4);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 8px 32px rgba(255, 182, 193, 0.2);
+  }
+
+  .phrase-text {
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    color: #fff;
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    font-family: "Georgia", serif;
+  }
+
+  .phrase-date {
+    font-size: 0.9rem;
+    color: #ffb6c1;
+    text-align: right;
+    text-transform: capitalize;
+  }
+
+  .all-phrases {
+    margin-top: 3rem;
+  }
+
+  h3 {
+    font-size: 1.8rem;
+    color: #ffb6c1;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-family: "Georgia", serif;
+  }
+
+  .phrases-grid {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .phrase-item {
+    background: rgba(255, 182, 193, 0.05);
+    border: 1px solid rgba(255, 182, 193, 0.2);
+    border-radius: 10px;
+    padding: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .phrase-item:hover {
+    background: rgba(255, 182, 193, 0.15);
+    border-color: rgba(255, 182, 193, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .mini-phrase {
+    color: #fff;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+    font-style: italic;
+  }
+
+  .mini-date {
+    font-size: 0.8rem;
+    color: #ffb6c1;
+    opacity: 0.8;
+  }
+
+  .music-player {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 100;
+  }
+
+  #music-toggle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(255, 182, 193, 0.9);
+    cursor: pointer;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 182, 193, 0.5);
+  }
+
+  #music-toggle:hover {
+    transform: scale(1.1);
+    background: rgba(255, 150, 180, 1);
+    box-shadow: 0 6px 20px rgba(255, 182, 193, 0.7);
+  }
+
+  @media (max-width: 768px) {
+    #phrases-section {
+      padding: 2rem 1rem;
+    }
+
+    .phrases-container {
+      padding: 2rem 1rem;
+    }
+  }
+</style>
+
+<script>
+  const musicToggle = document.getElementById("music-toggle");
+  const backgroundMusic = document.getElementById("background-music") as HTMLAudioElement;
+  const playIcon = document.querySelector(".play-icon") as HTMLElement;
+  const pauseIcon = document.querySelector(".pause-icon") as HTMLElement;
+
+  document.addEventListener("DOMContentLoaded", () => {
+    backgroundMusic.loop = true;
+    backgroundMusic.volume = 0.05;
+    backgroundMusic.play();
+    playIcon.style.display = "none";
+    pauseIcon.style.display = "block";
+  });
+
+  let isPlaying = true;
+  /* 
+
+  {
+    "date": "2026-01-30",
+    "phrase": "Tu sonrisa ilumina mi mundo como las estrellas iluminan el cielo nocturno."
+  }
+  ,
+  {
+    "date": "2026-01-31",
+    "phrase": "Eres la constelación más hermosa en mi universo."
+  }
+*/
+  musicToggle?.addEventListener("click", () => {
+    if (isPlaying) {
+      backgroundMusic.pause();
+      playIcon.style.display = "block";
+      pauseIcon.style.display = "none";
+    } else {
+      backgroundMusic.play();
+      playIcon.style.display = "none";
+      pauseIcon.style.display = "block";
+    }
+    isPlaying = !isPlaying;
+  });
+
+  // Intentar reproducir automáticamente cuando el usuario interactúe
+  document.addEventListener(
+    "click",
+    () => {
+      if (!isPlaying) {
+        backgroundMusic
+          .play()
+          .then(() => {
+            isPlaying = true;
+            playIcon.style.display = "none";
+            pauseIcon.style.display = "cblock";
+          })
+          .catch(() => {
+            // Silenciar error si el navegador bloquea autoplay
+          });
+      }
+    },
+    { once: true },
+  );
+</script>
